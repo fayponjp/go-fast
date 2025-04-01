@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+}
+
+.progress-bar {
+  width: 200px;
+  height: 200px;
+
+  background: conic-gradient(#ed6436 100deg, #e7edf1 0deg);
+  border-radius: 50%;
+  /* border: 2px solid #ed6436; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.progress-bar:before {
+  content: '';
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+  background-color: var(--background-color);
+
+  border-radius: 50%;
+
+}
+
+.text {
+  z-index: 2;
+  font-size: 1.5em;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  max-width: 150px;
+  cursor: pointer;
+}
