@@ -1,53 +1,31 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 h1 {
   text-align: center;
-
+  margin-block: 0.5em;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.progress-bar {
-  width: 200px;
-  height: 200px;
-
-  background: conic-gradient(#ed6436 100deg, #e7edf1 0deg);
-  border-radius: 50%;
-  /* border: 2px solid #ed6436; */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-}
-
-.progress-bar:before {
-  content: '';
-  position: absolute;
-
-  width: 150px;
-  height: 150px;
-  background-color: var(--background-color);
-
-  border-radius: 50%;
-
-}
-
-.text {
-  z-index: 2;
-  font-size: 1.5em;
-}
-
-button {
-  border: none;
+body {
+  background-color: var(--background-color-dark);
+  border: 1px solid rgb(10, 8, 41);
   border-radius: 5px;
-  padding: 1rem;
-  max-width: 150px;
-  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  color: #e3e7ee;
+  height: 500px;
+  width: 400px;
+}
+
+small {
+  font-size: 0.8rem;
 }

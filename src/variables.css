@@ -1,0 +1,6 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --background-color-dark: #25252e;
+    --datetime-bg-color-dark: #ffffff;
+    --datetime-color-dark: #261c0c;
+}

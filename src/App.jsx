@@ -1,20 +1,17 @@
 import { useState } from 'react'
 import './App.css'
-import Button from './components/Button'
+import './variables.css'
+import { ActiveFast, InactiveFast } from './components/Main/Main'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isFasting, setIsFasting] = useState(true)
 
   return (
     <>
       <header>
-        <h1>16-hour Fast</h1>
+        <h1>Start a fast</h1>
       </header>
-      <main>
-        <div className='progress-bar'>
-          <div className="text">0%</div>
-        </div>
-      </main>
+      {isFasting ? <ActiveFast /> : <InactiveFast />}
     </>
   )
 }
