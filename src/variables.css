@@ -1,6 +1,20 @@
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    --background-color-dark: #25252e;
+    --background-color-dark: #233a48;
     --datetime-bg-color-dark: #ffffff;
     --datetime-color-dark: #261c0c;
+}
+
+.dark {
+    background-color: var(--background-color-dark);
+    color: #e3e7ee;
+}
+
+.light {
+    background-color: #fcfcfb;
+    color: #16161f;
+}
+
+small {
+    font-size: 0.8rem;
 }

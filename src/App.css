@@ -2,30 +2,17 @@
 *:before,
 *:after {
   box-sizing: border-box;
-}
-
-h1 {
-  text-align: center;
-  margin-block: 0.5em;
-}
-
-html {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: var(--background-color-dark);
-  border: 1px solid rgb(10, 8, 41);
-  border-radius: 5px;
-  height: 100%;
-  width: 100%;
-  color: #e3e7ee;
-  height: 500px;
-  width: 400px;
+header {
+  text-align: center;
+  padding: 1em 0;
 }
 
-small {
-  font-size: 0.8rem;
+.container {
+  border-radius: 5px;
+  height: 500px;
+  width: 400px;
 }
