@@ -4,6 +4,11 @@ button {
     border-radius: 15px;
     padding: 1rem;
     margin: 0;
-    max-width: 150px;
+    /* max-width: 150px; */
     cursor: pointer;
+}
+
+button.wide {
+    width: 100%;
+    display: block;
 }

@@ -5,10 +5,14 @@ import './Main.css'
 
 
 function InactiveFast() {
+    const { toggleFasting } = useContext(FastWindowContext)
     return (
         <main>
+            <div className="last-fast">
+                Time since last fast:
+            </div>
             <div className='options'>
-                <Button>
+                <Button onClick={toggleFasting}>
                     Start Fasting
                 </Button>
             </div>
@@ -17,8 +21,7 @@ function InactiveFast() {
 }
 
 function ActiveFast() {
-    const { mode } = useContext(FastWindowContext)
-
+    const { mode, toggleFasting } = useContext(FastWindowContext)
     return (
         <main>
             <div className='progress-bar'>
@@ -28,7 +31,7 @@ function ActiveFast() {
                 <span><small>Started</small><time dateTime=''>Feb. 27, 2025</time></span>
                 <span><small>Goal</small><time dateTime=''>Feb. 27, 2025</time></span>
             </div>
-            <Button>End Fast</Button>
+            <Button size={'wide'} onClick={toggleFasting}>End Fast</Button>
         </main>
     )
 }
