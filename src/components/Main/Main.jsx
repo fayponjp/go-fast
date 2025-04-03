@@ -1,6 +1,8 @@
-import './Main.css'
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
+import { FastWindowContext } from '../../util/FastWindowContext'
 import Button from '../Button/Button'
+import './Main.css'
+
 
 function InactiveFast() {
     return (
@@ -14,7 +16,9 @@ function InactiveFast() {
     )
 }
 
-function ActiveFast({mode}) {
+function ActiveFast() {
+    const { mode } = useContext(FastWindowContext)
+
     return (
         <main>
             <div className='progress-bar'>
