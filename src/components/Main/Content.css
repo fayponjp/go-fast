@@ -4,6 +4,10 @@ main {
     align-items: center;
     gap: 1em;
     padding: 0 1.125em;
+    height: 100%;
+
+    flex: 1 0;
+    padding-bottom: 1em;
 }
   
 .progress-bar {
@@ -11,7 +15,7 @@ main {
     height: 220px;
     overflow: hidden;
 
-    background: conic-gradient(#f6764b 190deg, #ffeaea 0deg);
+    background: conic-gradient(var(--accent-light-bright) 5%, var(--accent-light) 50%, var(--border-darkmode) 0%);
     border-radius: 50%;
   
     display: flex;
@@ -29,25 +33,30 @@ main {
     font-size: 1.5em;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.progress-timers { 
+time {
+    font-weight: 500;
+}
+
+.progress-timers, .options { 
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.progress-timers > span > small {
+.progress-timers > span > small, .options > span > small {
     border-bottom: 1px solid #bab9b9;
 }
 
-.text > small, .progress-timers > span > small {
-    color: #f6764b;
+.text > span > small, .progress-timers > span > small, .options > span > small {
+    color: var(--accent-light);
 }
 
-.progress-timers > span {
+.progress-timers > span, .options > span {
     padding: 0.5em 0;
     border-radius: 20px;
     width: 40%;
@@ -56,4 +65,12 @@ main {
     align-items: center;
     font-weight: 600;
     border: 1px solid #ffeaea;
+}
+
+.options {
+    gap: 1em;
+}
+
+.options > span {
+    width: 50%;
 }

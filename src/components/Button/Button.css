@@ -4,11 +4,20 @@ button {
     border-radius: 15px;
     padding: 1rem;
     margin: 0;
-    /* max-width: 150px; */
     cursor: pointer;
 }
 
 button.wide {
     width: 100%;
     display: block;
+    letter-spacing: 0.15ch;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--accent-light);
+    color: #fff8f8;
+    font-size: 1.625rem;
+}
+
+button.medium {
+    width: 50%;
 }

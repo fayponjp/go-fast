@@ -1,18 +1,23 @@
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    --background-color-dark: #233a48;
-    --datetime-bg-color-dark: #ffffff;
+    font-family: 'Noto Sans', sans-serif;
+    --background-color-dark: #343245;
+    --background-color-light:#f7f7f7;
+    --border-darkmode: #ffeaea;
+    --border-lightmode: #8a7070;
+    --datetime-bg-color-dark: #f4f6f9;
+    --accent-light: #f06e42;
+    --accent-light-bright: #ffa384 ;
     --datetime-color-dark: #261c0c;
 }
 
 .dark {
     background-color: var(--background-color-dark);
-    color: #e3e7ee;
+    color: #f4f6f9;
 }
 
 .light {
-    background-color: #fcfcfb;
-    color: #16161f;
+    background-color: var(--background-color-light);
+    color: #262a2b;
 }
 
 small {

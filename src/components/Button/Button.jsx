@@ -1,5 +1,5 @@
-import './Button.css'
-import clsx from 'clsx'
+import "./Button.css"
+import clsx from "clsx"
 
 export default function Button({children, onClick, size}) {
     const classNames = (size);
