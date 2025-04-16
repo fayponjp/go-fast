@@ -15,7 +15,7 @@ main {
     height: 220px;
     overflow: hidden;
 
-    background: conic-gradient(var(--accent-light-bright) 5%, var(--accent-light) 50%, var(--border-darkmode) 0%);
+    /* background: conic-gradient(var(--accent-light-bright) 5%, var(--accent-light) 50%, var(--border-darkmode) 0%); */
     border-radius: 50%;
   
     display: flex;
@@ -36,6 +36,11 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.text > span {
+    display: flex;
+    align-items: center;
 }
 
 time {
