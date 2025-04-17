@@ -15,7 +15,7 @@ main {
     height: 220px;
     overflow: hidden;
 
-    /* background: conic-gradient(var(--accent-light-bright) 5%, var(--accent-light) 50%, var(--border-darkmode) 0%); */
+    background: conic-gradient(var(--accent-light-bright) 10%, var(--accent-light) 100%, var(--border-darkmode) 0%);
     border-radius: 50%;
   
     display: flex;
@@ -23,6 +23,10 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.progress-bar.completed {
+    background: conic-gradient(#b8dfa4 10%, #9ae475 100%, var(--border-darkmode) 0%);
 }
 
 .text {
@@ -41,6 +45,8 @@ main {
 .text > span {
     display: flex;
     align-items: center;
+    font-size: 1rem;
+    color: #bcb4b4;
 }
 
 time {

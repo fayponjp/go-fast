@@ -57,13 +57,18 @@ function App() {
     }
   }
 
+  function toggleModal() {
+    setIsOpen(prevToggle => !prevToggle)
+  }
+
   return (
     <FastWindowContext.Provider 
       value={
         {
           fast, 
           toggleFasting, 
-          mode,
+          open,
+          toggleModal,
           localTimer
         }
       }>
@@ -73,7 +78,11 @@ function App() {
         </header>
         {fast.isFasting ? <ActiveFast/> : <InactiveFast/>}
       </div>
-      <Modal open={open}></Modal>
+      <Modal 
+        open={open}
+        toggleModal={toggleModal}
+      >
+      </Modal>
     </FastWindowContext.Provider>
   )
 }

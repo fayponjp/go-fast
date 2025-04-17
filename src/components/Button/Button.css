@@ -15,9 +15,27 @@ button.wide {
     text-transform: uppercase;
     background-color: var(--accent-light);
     color: #fff8f8;
-    font-size: 1.625rem;
+    font-size: 1.5rem;
 }
 
 button.medium {
-    width: 50%;
+    width: 45%;
+}
+
+button.round {
+    border-radius: 50%;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-size: 2rem;
+
+    color: #fff;
+}
+
+
+button.completed {
+    background-color: var(--completed);
+    text-shadow: 1px 1px 8px rgb(146, 136, 136);
 }
