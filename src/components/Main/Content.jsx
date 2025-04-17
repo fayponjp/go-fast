@@ -23,7 +23,7 @@ function InactiveFast() {
 }
 
 function ActiveFast() {
-    const { mode, toggleFasting, fast } = useContext(FastWindowContext)
+    const { mode, toggleFasting, fast, toggleModal } = useContext(FastWindowContext)
     const { startDateTime, goalHours } = fast
     const [timeElapsedObj, setTimeElapsedObj] = useState({timeElapsed: 0, elapsedPercent: 0})
 
@@ -55,11 +55,12 @@ function ActiveFast() {
 
     return (
         <main>
+            
             <div className="progress-bar" style={ (timeElapsedObj.elapsedPercent <= 99.99) ?
                     {
                         background: `conic-gradient(var(--accent-light-bright) ${timeElapsedObj.elapsedPercent/10}%, 
                         var(--accent-light) ${timeElapsedObj.elapsedPercent}%, 
-                        var(--border-darkmode) 0%)`
+                        var(--border-${mode}mode) 0%)`
                     } :
                     {
                         background: `conic-gradient(var(--completed)  0%,var(--completed) 100%, var(--border-darkmode) 0%)`
@@ -70,13 +71,14 @@ function ActiveFast() {
                     <div className="timer">{timeElapsedObj.timeElapsed}</div>  
                 </div>
             </div>
-            <div className="progress-timers">
+            <Button size={'round goal'} onClick={toggleModal}>{goalHours}h</Button>
+            <div className={`progress-timers ${mode}`}>
                 <span>
                     <small>Started</small>
                     <time dateTime={startDateTime.toLocaleString()}>
                         {startDateTime.toLocaleDateString(navigator.language, {dateStyle: 'medium'})}
                     </time>
-                    <time datetime={startDateTime.toLocaleTimeString(navigator.language, {timeStyle: 'short'})}>
+                    <time dateTime={startDateTime.toLocaleTimeString(navigator.language, {timeStyle: 'short'})}>
                         {startDateTime.toLocaleTimeString(navigator.language, {timeStyle: 'short'})}
                     </time>
                 </span>

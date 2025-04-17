@@ -5,6 +5,8 @@ button {
     padding: 1rem;
     margin: 0;
     cursor: pointer;
+
+    font-family: inherit;
 }
 
 button.wide {
@@ -22,16 +24,53 @@ button.medium {
     width: 45%;
 }
 
+button.fast {
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    align-items: center;
+    color: #f6eeee;
+    font-weight: bold;
+    height: 150px;
+}
+
+button.fast:nth-child(1) {
+    background-color: #c7a149;
+}
+
+button.fast:nth-child(2) {
+    background-color: #da714d;
+}
+
+button.fast:nth-child(3) {
+    background-color: #5783cf;
+}
+
+button.fast:nth-child(4) {
+    background-color: #8ab865;
+}
+
 button.round {
     border-radius: 50%;
     background-color: inherit;
     position: absolute;
     top: 0;
     right: 0;
-
+    z-index: 1000;
     font-size: 2rem;
+    color: inherit;
+}
 
+button.round.goal {
     color: #fff;
+    background-color: var(--accent-light);
+    font-size: 1rem;
+    right: 1em;
+    width: 70px;
+    border-radius: 15px;
 }
 
 

@@ -1,12 +1,14 @@
 :root {
     font-family: 'Noto Sans', sans-serif;
     --background-color-dark: #343245;
-    --background-color-light:#f7f7f7;
+    --background-color-light:#eae1e1;
     --border-darkmode: #ffeaea;
-    --border-lightmode: #8a7070;
+    --border-lightmode: #ad978e;
     --datetime-bg-color-dark: #f4f6f9;
     --accent-light: #f06e42;
-    --accent-light-bright: #ffa384 ;
+    --accent-light-bright: #ffa384;
+    --secondary-text-dark: #bcb4b4;
+    --secondary-text-light: #746c6c;
     --datetime-color-dark: #261c0c;
     --completed: #a1e181;
 }

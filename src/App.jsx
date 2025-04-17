@@ -61,6 +61,12 @@ function App() {
     setIsOpen(prevToggle => !prevToggle)
   }
 
+  function updateTimer(newGoal) {
+    setFast(prevFastObject => ({...prevFastObject, goalHours: newGoal}))
+    localStorage.setItem('currentFastGoalHours', newGoal)
+    toggleModal()
+  }
+
   return (
     <FastWindowContext.Provider 
       value={
@@ -68,8 +74,10 @@ function App() {
           fast, 
           toggleFasting, 
           open,
+          mode,
           toggleModal,
-          localTimer
+          localTimer,
+          updateTimer
         }
       }>
       <div className={classNames}>
@@ -78,27 +86,9 @@ function App() {
         </header>
         {fast.isFasting ? <ActiveFast/> : <InactiveFast/>}
       </div>
-      <Modal 
-        open={open}
-        toggleModal={toggleModal}
-      >
-      </Modal>
+      <Modal />
     </FastWindowContext.Provider>
   )
 }
-
-/***
- * I. Inactive fast window
- * Start a fast:
- * 1. Set fast state to true
- * 2. Save to localhost time on click
- * 3. Save the time to state, calculate time to goal
- * 4. Have an effect to update the progress bar every second, and when it's 100%
- * 
- * 
- * 
- * 
- * 
- */
 
 export default App

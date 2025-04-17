@@ -4,21 +4,31 @@
     top: 10px;
     left: 0;
     right: 0;
-    background-color: var(--background-color-dark);
     transform: translateX(-100%);
-    transition: transform 100ms cubic-bezier(.5, 0, .5, 1);
-    height: 480px;
+    transition: transform 200ms cubic-bezier(.5, 0, .5, 1);
+    height: 500px;
     width: 390px;
 
     z-index: 1000;
+    border-radius: 8px;
 
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    overflow-y: scroll;
     padding: 1em;
+    gap: 1em;
+}
 
+.modal.light {
+    color: #000;
+    box-shadow: 0 2px 8px #000;
+}
+
+.modal.dark {
     color: #fff;
+    box-shadow: 0 2px 8px #a9a6a6;
 }
 
 .modal.open {

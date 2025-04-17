@@ -8,25 +8,21 @@ main {
 
     flex: 1 0;
     padding-bottom: 1em;
+    position: relative;
 }
   
 .progress-bar {
     width: 220px;
     height: 220px;
     overflow: hidden;
-
-    background: conic-gradient(var(--accent-light-bright) 10%, var(--accent-light) 100%, var(--border-darkmode) 0%);
     border-radius: 50%;
-  
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-}
 
-.progress-bar.completed {
-    background: conic-gradient(#b8dfa4 10%, #9ae475 100%, var(--border-darkmode) 0%);
+    transition: all 4s;
 }
 
 .text {
@@ -46,7 +42,11 @@ main {
     display: flex;
     align-items: center;
     font-size: 1rem;
-    color: #bcb4b4;
+    color: var(--secondary-text-dark);
+}
+
+.text.light > span {
+    color: var(--secondary-text-light)
 }
 
 time {
@@ -76,6 +76,10 @@ time {
     align-items: center;
     font-weight: 600;
     border: 1px solid #ffeaea;
+}
+
+.progress-timers.light > span, .options.light > span {
+    border: 1px solid var(--border-lightmode);
 }
 
 .options {
