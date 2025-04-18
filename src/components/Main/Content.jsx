@@ -1,21 +1,24 @@
 import { useState, useContext, useEffect, useRef } from "react"
 import { FastWindowContext } from "../../util/FastWindowContext"
 import Button from "../Button/Button"
+import { ConfirmationModal } from '../Modal/Modal'
 import "./Content.css"
 
 function InactiveFast() {
-    const { toggleFasting, localTimer, setIsOpen, toggleModal } = useContext(FastWindowContext)
+    const { toggleFasting, mode, fast, toggleModal } = useContext(FastWindowContext)
+    const lastFast = localStorage.getItem('endedOn')
+    const cleanedLastFast = (lastFast) ? new Date(JSON.parse(lastFast)).toLocaleString(navigator.language, {dateStyle: 'medium', timeStyle: 'short'}) : null
 
     return (
         <main>
             <div className="last-fast">
-                {localTimer ? 'Time since last fast:' : 'No Previous Fasts'}
+                {lastFast ? 'Last fast: ' + cleanedLastFast : 'No Previous Fasts'}
             </div>
             <Button size={"wide"} onClick={() => toggleFasting('start')}>
                     Begin Fast
             </Button>
-            <div className="options">
-                <span><small>Current Fast</small>16 hours</span>
+            <div className={`options ${mode}`}>
+                <span><small>Current Fast</small>{fast.goalHours} hours</span>
                 <Button size={"medium"} onClick={toggleModal}>Fast Options</Button>
             </div>
         </main>
@@ -26,6 +29,7 @@ function ActiveFast() {
     const { mode, toggleFasting, fast, toggleModal } = useContext(FastWindowContext)
     const { startDateTime, goalHours } = fast
     const [timeElapsedObj, setTimeElapsedObj] = useState({timeElapsed: 0, elapsedPercent: 0})
+    const [activeFastModal, setActiveFastModal] = useState(false)
 
     const goal = new Date()
     goal.setTime(startDateTime.getTime() + goalHours*60*60*1000)
@@ -53,9 +57,12 @@ function ActiveFast() {
         return (() => clearInterval(setIntervalVariable))
     }, [fast])
 
+    function toggleModalContent() {
+        setActiveFastModal(true)
+    }
+
     return (
         <main>
-            
             <div className="progress-bar" style={ (timeElapsedObj.elapsedPercent <= 99.99) ?
                     {
                         background: `conic-gradient(var(--accent-light-bright) ${timeElapsedObj.elapsedPercent/10}%, 
@@ -92,7 +99,23 @@ function ActiveFast() {
                     </time>
                 </span>
             </div>
-            <Button size={`wide ${(timeElapsedObj.elapsedPercent >= 99.99) && 'completed'}`} onClick={() => toggleFasting('end')}>{(timeElapsedObj.elapsedPercent >= 99.99) ? 'Complete Fast' : 'End Fast'}</Button>
+            {
+                (timeElapsedObj.elapsedPercent > 0.00) &&
+                <Button 
+                    size={`wide ${(timeElapsedObj.elapsedPercent >= 99.99) && 'completed'}`} 
+                    onClick={
+                        () => timeElapsedObj.elapsedPercent >= 99.99 ? toggleFasting('complete') : toggleModalContent()
+                    }
+                >
+                    {(timeElapsedObj.elapsedPercent >= 99.99) ? 'Complete Fast' : 'End Fast'}
+                </Button>
+            }
+            {
+                <ConfirmationModal 
+                    isActive={activeFastModal}
+                    setActiveFastModal={setActiveFastModal}
+                />
+            }
         </main>
     )
 }

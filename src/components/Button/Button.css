@@ -5,8 +5,22 @@ button {
     padding: 1rem;
     margin: 0;
     cursor: pointer;
-
     font-family: inherit;
+}
+
+button.light {
+    border: 1px solid var(--border-lightmode);
+    background-color: #f4f6f9;
+}
+
+button.dark {
+    background-color: #f4f6f9;
+    color: #262a2b;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
 }
 
 button.wide {
@@ -37,19 +51,19 @@ button.fast {
     height: 150px;
 }
 
-button.fast:nth-child(1) {
+button.fast:nth-child(2) {
     background-color: #c7a149;
 }
 
-button.fast:nth-child(2) {
+button.fast:nth-child(3) {
     background-color: #da714d;
 }
 
-button.fast:nth-child(3) {
+button.fast:nth-child(4) {
     background-color: #5783cf;
 }
 
-button.fast:nth-child(4) {
+button.fast:nth-child(5) {
     background-color: #8ab865;
 }
 
@@ -64,6 +78,11 @@ button.round {
     color: inherit;
 }
 
+button.round:hover {
+    filter: initial;
+    transform: initial;
+}
+
 button.round.goal {
     color: #fff;
     background-color: var(--accent-light);
@@ -72,7 +91,6 @@ button.round.goal {
     width: 70px;
     border-radius: 15px;
 }
-
 
 button.completed {
     background-color: var(--completed);

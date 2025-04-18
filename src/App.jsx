@@ -11,8 +11,9 @@ function App() {
   const [mode, setMode] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
   const classNames = clsx("container", mode)
   const [localTimer, setLocalTimer] = useState(null)
-  const [fast, setFast] = useState({isFasting: false, startDateTime: null, goalHours: null})
+  const [fast, setFast] = useState({isFasting: false, startDateTime: null, goalHours: 16})
   const [open, setIsOpen] = useState(false)
+
   const firstRenderRef = useRef(true)
 
   useEffect(() => {
@@ -42,18 +43,25 @@ function App() {
     const currentTime = new Date();
     if (toggle === 'start') {
       setFast((prevFast) => {
-        const currentFastObj = {...prevFast, isFasting: true, startDateTime: currentTime, goalHours: 16 }        
+        const currentFastObj = {...prevFast, isFasting: true, startDateTime: currentTime}        
         localStorage.setItem('currentFastStart', JSON.stringify(currentTime))
         localStorage.setItem('currentFastGoalHours', currentFastObj.goalHours)
         return currentFastObj
       })
-    } else if (toggle === 'end') {
-      localStorage.setItem('completedOn', JSON.stringify(currentTime))
+    } else if (toggle === 'complete' || toggle === 'end') {
+      let historyArr = localStorage.getItem('fastHistory') ? JSON.parse(localStorage.getItem('fastHistory')) : []
+      historyArr = [{...fast, completed: (toggle === 'end') ? false : true, endedOn: currentTime}, ...historyArr]
+
+      localStorage.setItem('endedOn', JSON.stringify(currentTime))
+      localStorage.removeItem('currentFastStart')
+      localStorage.removeItem('currentFastGoalHours')        
+      localStorage.setItem('fastHistory', JSON.stringify(historyArr))
+
+      setFast({ isFasting: false, startDateTime: null, goalHours: 16 })
+    } else if (toggle === 'cancel') {
       localStorage.removeItem('currentFastStart')
       localStorage.removeItem('currentFastGoalHours')
-      setFast({ isFasting: false, startDateTime: null, goalHours: null })
-    } else if (toggle === 'complete') {
-
+      setFast({ isFasting: false, startDateTime: null, goalHours: 16 })
     }
   }
 
@@ -76,7 +84,6 @@ function App() {
           open,
           mode,
           toggleModal,
-          localTimer,
           updateTimer
         }
       }>
@@ -86,7 +93,7 @@ function App() {
         </header>
         {fast.isFasting ? <ActiveFast/> : <InactiveFast/>}
       </div>
-      <Modal />
+      <Modal/>
     </FastWindowContext.Provider>
   )
 }
