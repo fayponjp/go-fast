@@ -47,11 +47,17 @@ export default function Modal() {
                 </Button>
             </div>
             <div className="history">
-                <h3>Fast history</h3>
-                <ul>
-                    <li><span>Date</span> | <span>Completed</span> | <span>Goal</span></li>
-                    {localHistoryElements}
-                </ul>
+                {
+                    (localHistoryElements) ?
+                    <>
+                    <h3>Fast history</h3>
+                    <ul>
+                        <li><span>Date</span> | <span>Completed</span> | <span>Goal</span></li>
+                        {localHistoryElements}
+                    </ul>
+                    </>
+                    : 'Your previous fasts are shown here!'
+                }
             </div>
             <Button size={'round'} onClick={toggleModal}>{'x'}</Button>
         </div>
